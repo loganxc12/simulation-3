@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter, NavLink } from "react-router-dom";
+import { connect } from "react-redux";
 
 function Nav(props) {
      const { pathname } = props.location;
@@ -13,4 +14,9 @@ function Nav(props) {
      ) : null;
 }
 
-export default withRouter(Nav);
+function mapStateToProps(reduxState) {
+     const { username, profile_pic } = reduxState;
+     return { username, profile_pic }
+}
+
+export default withRouter(connect(mapStateToProps)(Nav));

@@ -12,5 +12,8 @@ massive(process.env.CONNECTION_STRING).then(dbInstance => {
 const app = express();
 app.use(bodyParser.json());
 
+app.post("/api/register", controller.registerUser);
+app.post("/api/login", controller.loginUser);
+
 const PORT = 4005;
 app.listen(PORT, console.log(`Server listening on port ${PORT}`));
