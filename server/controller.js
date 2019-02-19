@@ -65,8 +65,28 @@ module.exports = {
                 res.status(500).send({ errorMessage: "Error in createTweet method" });
                 console.log(error);
             }) 
-    }
+    },
 
+    updateTweet: (req, res) => {
+        const { id } = req.params;
+        const { tweet } = req.body;
+        const user_id = req.session.user.id;
+        const dbInstance = req.app.get("db");
+        dbInstance.update_tweet([ tweet, id, user_id ])
+            .then(tweets => {
+                res.status(200).send(tweets);
+            }) 
+            .catch(error => {
+                res.status(500).send({ errorMessage: "Error in createTweet method" });
+                console.log(error);
+            })    
+    }, 
+
+    search: (req, res) => {
+        console.log("----req.query", req.query);
+        const { query } = req.query;
+        res.status(200).send(query);
+    }
 
 
 }

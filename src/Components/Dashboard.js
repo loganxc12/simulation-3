@@ -1,25 +1,34 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
+import Tweet from "./Tweet";
 
 class Dashboard extends Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            search: ""
+        }
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange(e) {
+        this.setState({ [e.target.name] : e.target.value })
     }
 
     render () {
-        const { tweets } = this.props;
-
+        let tweetsToDisplay = this.props.tweets.map(tweet => 
+            <Tweet tweet={tweet} />
+        );
         return (
             <div className="dash">
                 <h2>MY TWEETS</h2> 
-                {
-                    tweets.map(tweet => 
-                        //CREATE SEPERATE TWEET COMPONENT WITH EDIT 
-                        <p>{tweet.content} <i className="fas fa-pen-square"></i></p>
-                    );
-                }
+                <div className="search-box">
+                    <input onChange={this.handleChange} type="text" placeholder="Search yo' tweets" value={this.state.search} />
+                    <button>Search</button>
+                </div>
+                { tweetsToDisplay }
             </div>
         );
     }

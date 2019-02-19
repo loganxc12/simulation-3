@@ -5,6 +5,7 @@ const INITIAL_STATE = {
 }
 //REDUCER
 export default function reducer(state = INITIAL_STATE, action) {
+    console.log("ACTION", action);
     switch(action.type) {
         case UPDATE_USER:
             return Object.assign({}, state, { user: action.payload });
@@ -27,6 +28,7 @@ export function updateUser(user) {
 }
 
 export function updateTweets(tweets) {
+    console.log("action crteator", tweets);
     return {
         type: UPDATE_TWEETS,
         payload: tweets

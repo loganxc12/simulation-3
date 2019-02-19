@@ -28,7 +28,10 @@ app.get("/api/user", controller.getUser);''
 
 //TWEET ENDPOINTS
 app.get("/api/tweets", controller.getTweets);
+app.post("/api/search", controller.search);
 app.post("/api/tweets", controller.createTweet);
+app.put("/api/tweets/:id", controller.updateTweet);
+
 
 const PORT = 4005;
 app.listen(PORT, console.log(`Server listening on port ${PORT}`));

@@ -93,6 +93,26 @@ button:focus {
   }
 }
 
+// DASH
+
+.dash {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 90px;
+  align-items: center;
+
+  .search-box {
+    margin-bottom: 10px;
+  }
+
+}
+
+div.dash > div:nth-child(2) > button {
+  margin-left: 5px;
+  background-color: #FF9A9A;
+}
+
 // FORM 
 
 .tweet-form {
@@ -131,4 +151,43 @@ button:focus {
 
   }
 
+}
+
+//TWEET
+
+.tweet {
+  position: relative;
+  width: 350px;
+  margin: 5px;
+  border: 3px solid lightgrey;
+  
+  i {
+    position: absolute;
+    right: 10px;
+    top: 7px;
+    cursor: pointer;
+  }
+
+  i.cancel {
+    top: 30px;
+    color: #FF9A9A;
+  }
+
+  i.save {
+    color: #90EE90;
+  }
+
+  textarea {
+    width: 70%;
+    margin: 10px 0 5px 0;
+  }
+
+
+}
+
+.query-box {
+  button {
+    background-color: #FF9A9A;
+    margin-left: 5px;
+  }
 }
