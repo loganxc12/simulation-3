@@ -1,0 +1,1 @@
+SELECT * FROM tweets WHERE user_id = $1;
